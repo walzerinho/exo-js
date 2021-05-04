@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>table multiplication</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h3>table de multiplication</h3>
+    <input type="range" id="taille" name="taille" min="0" max="150">
+    <table>
+    <script type="text/javascript">
+
+const L = 10;
+let tr = `<tr>`;
+let tr2 = `</tr>`;
+let td = `<td>`;
+let td2 = `</td>`;
+let ecrire = ``;
+let y;
+let x;
+let seb = 1;
+
+// for(let q = 0; q<L*L; q+=L){
+
+// }
+
+// On détermine chaque index avec ses positions X Y dans l'espace
+array = [];
+for (let i = 0; i< L*L; i++)
+{
+  y = Math.floor(i/L);
+  x = i - y * L;
+  // array[i] = [x, y];
+  array[i] = (y + 1) * (x +1)
+}
+// const o = { foo:x 
+//   wal:y
+// }
+
+
+
+function createTable(){
+
+for (let z = 0; z < 1 ; z++){
+  ecrire += `${tr}`;
+
+  for (let w = 0; w < L*L; w ++) {
+    
+    ecrire += `<td class="${w}">  ${array[w]}  ${td2}`;
+    // let tom = document.querySelectorAll("td");
+
+    // On souhaite un retour à la ligne tous les L caratères
+    if ((w+1) % L===0) { 
+      ecrire += `${tr2}`;
+    }
+  }
+  
+}  
+document.write(ecrire);
+}  
+
+
+// prettier();
+createTable();
+let tom = document.querySelectorAll("td");
+
+for (let q = 0; q < tom.length; q++) {
+  if (tom[`${q*L+q}`].classList.contains(`${q*L+q}`)) {
+tom[`${q*L+q}`].style.backgroundColor="blue";
+};
+}
+    </script>
+    </table>
+  </body>
+</html>
